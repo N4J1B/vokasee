@@ -36,7 +36,7 @@ export default function CallToAction() {
 
 function ActionCard({ icon, title, description }: { icon: string; title: string; description: string }) {
   return (
-    <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition-all">
+    <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition-all">
       <div className="text-4xl mb-3">{icon}</div>
       <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
       <p className="text-white opacity-80 text-sm">{description}</p>

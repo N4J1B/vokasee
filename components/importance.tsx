@@ -62,7 +62,7 @@ export default function ImportanceOfInternship() {
                 />
               </button>
               {expandedId === item.id && (
-                <div className="bg-background-secondary px-6 py-4 border-t border-border-light">
+                <div className="bg-white/75 px-6 py-4 border-t border-border-light">
                   <p className="text-foreground-secondary">{item.description}</p>
                 </div>
               )}

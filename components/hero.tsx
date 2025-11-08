@@ -17,11 +17,11 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-primary via-primary-light to-secondary-light flex flex-col items-center justify-center px-4 py-20 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-black via-primary to-accent-dark flex flex-col items-center justify-center px-4 py-20 overflow-hidden">
       {/* Animated background shapes */}
-      <div className="absolute top-10 left-10 w-72 h-72 bg-secondary-light opacity-20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute top-10 left-10 w-72 h-72 bg-secondary-light/20 rounded-full blur-3xl animate-pulse"></div>
       <div
-        className="absolute bottom-10 right-10 w-96 h-96 bg-accent opacity-15 rounded-full blur-3xl animate-pulse"
+        className="absolute bottom-10 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse"
         style={{ animationDelay: "1s" }}
       ></div>
 
@@ -79,12 +79,12 @@ function StatCard({ number, label }: { number: string; label: string }) {
   }, [number])
 
   return (
-    <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-6 border border-white border-opacity-20">
-      <div className="text-3xl md:text-4xl font-bold text-black mb-2">
+    <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20">
+      <div className="text-3xl md:text-4xl font-bold text-white mb-2">
         {count}
         {number.replace(/\d/g, "")}
       </div>
-      <p className="text-black opacity-80 text-sm">{label}</p>
+      <p className="text-white opacity-80 text-sm">{label}</p>
     </div>
   )
 }

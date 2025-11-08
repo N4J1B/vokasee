@@ -24,7 +24,7 @@ export default function Home() {
       <ChallengesAndSolutions />
       <PolicyRecommendations />
       <CallToAction />
-      <References />
+      {/* <References /> */}
       <Footer />
     </main>
   )
