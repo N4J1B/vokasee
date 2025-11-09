@@ -37,9 +37,9 @@ export default function Hero() {
 
         {/* Key Statistics */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <StatCard number="85%" label="Peningkatan Kesiapan Kerja" />
-          <StatCard number="3x" label="Lebih Besar Peluang Terserap Industri" />
-          <StatCard number="2 tahun" label="Setara dengan Pembelajaran Teoritis" />
+          <StatCard number="81.36%" label="Tingkat Employability dengan Magang" />
+          <StatCard number="1.8x" label="Lebih Besar Peluang Terserap Industri" />
+          <StatCard number="+46%" label="Peningkatan Kesiapan Profesional" />
         </div>
 
         {/* Scroll Indicator */}
@@ -59,7 +59,8 @@ function StatCard({ number, label }: { number: string; label: string }) {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    const numValue = Number.parseInt(number)
+    // Extract only numeric value from the string
+    const numValue = Number.parseFloat(number.replace(/[^\d.]/g, ""))
     if (isNaN(numValue)) return
 
     const increment = numValue / 20
@@ -82,7 +83,7 @@ function StatCard({ number, label }: { number: string; label: string }) {
     <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20">
       <div className="text-3xl md:text-4xl font-bold text-white mb-2">
         {count}
-        {number.replace(/\d/g, "")}
+        {number.replace(/\d+\.?\d*/g, "")}
       </div>
       <p className="text-white opacity-80 text-sm">{label}</p>
     </div>

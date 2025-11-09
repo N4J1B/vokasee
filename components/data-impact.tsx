@@ -37,29 +37,13 @@ export default function DataAndImpact() {
     { skill: "Kesiapan Profesional", before: 42, after: 88, improvement: "+46%" },
     { skill: "Adaptasi Industri", before: 40, after: 82, improvement: "+42%" },
   ]
-
-  // Data Tracer Study - Persepsi Manfaat
-  const benefitData = [
-    { name: "Pemahaman Industri", value: 88, source: "Tracer Study 2024" },
-    { name: "Skill Teknis", value: 85, source: "Tracer Study 2024" },
-    { name: "Confidence & Adaptasi", value: 80, source: "Tracer Study 2024" },
-    { name: "Networking Profesional", value: 72, source: "Tracer Study 2024" },
-    { name: "Kesiapan Kerja", value: 90, source: "Tracer Study 2024" },
-  ]
-
+  
   // Data BPS - Rata-rata Gaji
   const salaryData = [
     { education: "Diploma I/II/III", salary: 3890826, color: "#3B82F6" },
     { education: "Diploma IV/S1", salary: 4350202, color: "#10B981" },
     { education: "SMK/Sederajat", salary: 2970000, color: "#94A3B8" },
     { education: "SD ke bawah", salary: 2070000, color: "#CBD5E1" },
-  ]
-
-  // Data BPS 2022-2024 - TPT Trend
-  const tptTrendData = [
-    { period: "Feb 2022", tptSMK: 10.39, tptVokasi: 10.5 },
-    { period: "Feb 2023", tptSMK: 8.64, tptVokasi: 9.2 },
-    { period: "Agustus 2024", tptSMK: 9.0, tptVokasi: 9.0 },
   ]
 
   // Data Industri Satisfaction - Tracer Study 2024
@@ -76,7 +60,7 @@ export default function DataAndImpact() {
     <section className="py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">📊 Data & Fakta: Dampak Magang</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Dampak Magang</h2>
           <p className="text-lg text-foreground-secondary max-w-3xl mx-auto">
             Berdasarkan data BPS (2024-2025), Tracer Study Politeknik PU 2024, dan penelitian akademis terkini tentang dampak magang terhadap kompetensi dan employability mahasiswa vokasi di Indonesia.
           </p>
