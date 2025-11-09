@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { motion, AnimatePresence } from "motion/react"
 
 export default function References() {
   const [expandedSection, setExpandedSection] = useState(0)
@@ -70,27 +71,53 @@ export default function References() {
 
         <div className="space-y-4">
           {references.map((section, sectionIndex) => (
-            <div key={sectionIndex} className="border border-border-light rounded-lg overflow-hidden">
+            <motion.div
+              key={sectionIndex}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: sectionIndex * 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="border border-border-light rounded-lg overflow-hidden"
+            >
               <button
                 onClick={() => setExpandedSection(expandedSection === sectionIndex ? -1 : sectionIndex)}
                 className="w-full bg-background-secondary hover:bg-background-tertiary p-6 flex items-center justify-between transition-colors"
               >
                 <h3 className="text-lg font-semibold text-foreground">{section.title}</h3>
-                <ChevronDown
-                  className={`w-5 h-5 text-primary transition-transform ${expandedSection === sectionIndex ? "rotate-180" : ""}`}
-                />
+                <motion.div
+                  animate={{ rotate: expandedSection === sectionIndex ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ChevronDown className="w-5 h-5 text-primary" />
+                </motion.div>
               </button>
-              {expandedSection === sectionIndex && (
-                <div className="bg-white px-6 py-4 border-t border-border-light space-y-4">
-                  {section.items.map((item, i) => (
-                    <div key={i} className="pb-4 border-b border-border-light last:border-0 last:pb-0">
-                      <h4 className="font-semibold text-foreground mb-1">{item.label}</h4>
-                      <p className="text-sm text-foreground-secondary">{item.description}</p>
+              <AnimatePresence>
+                {expandedSection === sectionIndex && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-white border-t border-border-light overflow-hidden"
+                  >
+                    <div className="px-6 py-4 space-y-4">
+                      {section.items.map((item, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: i * 0.08 }}
+                          className="pb-4 border-b border-border-light last:border-0 last:pb-0"
+                        >
+                          <h4 className="font-semibold text-foreground mb-1">{item.label}</h4>
+                          <p className="text-sm text-foreground-secondary">{item.description}</p>
+                        </motion.div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              )}
-            </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
         </div>
 

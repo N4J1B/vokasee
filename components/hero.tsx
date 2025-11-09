@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { ArrowDown } from "lucide-react"
+import { motion } from "motion/react"
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0)
@@ -27,29 +28,47 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center justify-center">
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight"
+        >
           Peran Magang Industri dalam Penguatan Kompetensi Mahasiswa Vokasi
-        </h1>
+        </motion.h1>
 
-        <p className="text-xl md:text-2xl text-white opacity-90 mb-12">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-xl md:text-2xl text-white opacity-90 mb-12"
+        >
           Memahami Pentingnya Pengalaman Kerja Nyata dalam Pendidikan Vokasi
-        </p>
+        </motion.p>
 
         {/* Key Statistics */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+        >
           <StatCard number="81.36%" label="Tingkat Employability dengan Magang" />
           <StatCard number="1.8x" label="Lebih Besar Peluang Terserap Industri" />
           <StatCard number="+46%" label="Peningkatan Kesiapan Profesional" />
-        </div>
+        </motion.div>
 
         {/* Scroll Indicator */}
-        <button
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
           onClick={scrollToSection}
           className="mt-12 flex flex-col items-center justify-center gap-2 text-white hover:opacity-75 transition-opacity cursor-pointer"
         >
           <span className="text-sm font-medium">Jelajahi Peran Magang</span>
           <ArrowDown className="w-6 h-6 animate-bounce" style={{ animationDelay: "0s" }} />
-        </button>
+        </motion.button>
       </div>
     </section>
   )

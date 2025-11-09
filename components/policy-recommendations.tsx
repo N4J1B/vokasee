@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { motion, AnimatePresence } from "motion/react"
 
 export default function PolicyRecommendations() {
   const [expanded, setExpanded] = useState(0)
@@ -59,7 +60,14 @@ export default function PolicyRecommendations() {
 
         <div className="space-y-4">
           {recommendations.map((rec, index) => (
-            <div key={index} className="border border-border-light rounded-lg overflow-hidden">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="border border-border-light rounded-lg overflow-hidden"
+            >
               <button
                 onClick={() => setExpanded(expanded === index ? -1 : index)}
                 className="w-full bg-white hover:bg-background-secondary p-6 flex items-center justify-between transition-colors"
@@ -68,23 +76,40 @@ export default function PolicyRecommendations() {
                   <div className="text-3xl">{rec.icon}</div>
                   <h3 className="text-lg font-semibold text-foreground text-left">{rec.stakeholder}</h3>
                 </div>
-                <ChevronDown
-                  className={`w-5 h-5 text-primary transition-transform ${expanded === index ? "rotate-180" : ""}`}
-                />
+                <motion.div
+                  animate={{ rotate: expanded === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ChevronDown className="w-5 h-5 text-primary" />
+                </motion.div>
               </button>
-              {expanded === index && (
-                <div className="bg-background-secondary px-6 py-4 border-t border-border-light">
-                  <ul className="space-y-3">
-                    {rec.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="text-primary font-bold mt-1">✓</span>
-                        <span className="text-foreground-secondary">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+              <AnimatePresence>
+                {expanded === index && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-background-secondary border-t border-border-light overflow-hidden"
+                  >
+                    <ul className="space-y-3 px-6 py-4">
+                      {rec.items.map((item, i) => (
+                        <motion.li
+                          key={i}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: i * 0.08 }}
+                          className="flex items-start gap-3"
+                        >
+                          <span className="text-primary font-bold mt-1">✓</span>
+                          <span className="text-foreground-secondary">{item}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
         </div>
       </div>

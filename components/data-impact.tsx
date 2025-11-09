@@ -12,6 +12,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts"
+import { motion } from "motion/react"
 
 export default function DataAndImpact() {
   // Data dari BPS Agustus 2024 & Tracer Study Politeknik PU
@@ -69,7 +70,13 @@ export default function DataAndImpact() {
         {/* Row 1: Employability Rate */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {/* Employability Rate Comparison */}
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-lg border border-blue-200">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-lg border border-blue-200"
+          >
             <h3 className="text-xl font-bold text-foreground mb-2">Tingkat Employability Lulusan Vokasi</h3>
             <p className="text-sm text-foreground-secondary mb-6">
               Persentase lulusan yang terserap kerja dalam 1 tahun pasca kelulusan
@@ -89,10 +96,16 @@ export default function DataAndImpact() {
             <p className="text-xs text-foreground-secondary mt-4 italic">
               Sumber: BPS Agustus 2024 & Tracer Study Politeknik PU 2024
             </p>
-          </div>
+          </motion.div>
 
           {/* Waiting Time Distribution */}
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-lg border border-emerald-200">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-lg border border-emerald-200"
+          >
             <h3 className="text-xl font-bold text-foreground mb-2">Distribusi Waktu Tunggu Kerja</h3>
             <p className="text-sm text-foreground-secondary mb-6">
               Lulusan dengan magang mayoritas bekerja dalam waktu singkat
@@ -114,11 +127,17 @@ export default function DataAndImpact() {
                 ✓ 85.29% lulusan bekerja dalam waktu &lt; 6 bulan
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Row 2: Competency Development */}
-        <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-lg border border-purple-200 mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-lg border border-purple-200 mb-8"
+        >
           <h3 className="text-xl font-bold text-foreground mb-2">📈 Peningkatan Kompetensi Sebelum & Sesudah Magang</h3>
           <p className="text-sm text-foreground-secondary mb-6">
             Data menunjukkan peningkatan signifikan dalam 5 dimensi kompetensi utama (Skala 0-100)
@@ -140,11 +159,17 @@ export default function DataAndImpact() {
           <p className="text-xs text-foreground-secondary mt-4 italic">
             Sumber: Penelitian Akademis 2025 - Pengaruh Magang Industri terhadap Peningkatan Kompetensi Mahasiswa Vokasi
           </p>
-        </div>
+        </motion.div>
 
         {/* Row 3: Salary Data */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-lg border border-cyan-200">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-lg border border-cyan-200"
+          >
             <h3 className="text-xl font-bold text-foreground mb-2">💰 Rata-rata Gaji Lulusan (BPS 2025)</h3>
             <p className="text-sm text-foreground-secondary mb-6">
               Perbandingan gaji berdasarkan tingkat pendidikan
@@ -168,10 +193,16 @@ export default function DataAndImpact() {
             <p className="text-xs text-foreground-secondary mt-6 italic">
               Sumber: BPS - Keadaan Pekerja di Indonesia, Februari 2025
             </p>
-          </div>
+          </motion.div>
 
           {/* Industry Satisfaction */}
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-lg border border-amber-200">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-lg border border-amber-200"
+          >
             <h3 className="text-xl font-bold text-foreground mb-2">⭐ Kepuasan Industri terhadap Lulusan</h3>
             <p className="text-sm text-foreground-secondary mb-6">
               Rating kepuasan pengguna lulusan vokasi (Skala 1-5)
@@ -195,7 +226,7 @@ export default function DataAndImpact() {
             <p className="text-xs text-foreground-secondary mt-6 italic">
               Sumber: Tracer Study Politeknik PU 2024 (Response Rate: 41.01% dari 139 pengguna)
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Key Insights */}

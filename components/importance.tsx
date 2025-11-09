@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { motion, AnimatePresence } from "motion/react"
 
 export default function ImportanceOfInternship() {
   const [expandedId, setExpandedId] = useState<number | null>(0)
@@ -57,15 +58,28 @@ export default function ImportanceOfInternship() {
                 className="w-full bg-white hover:bg-background-secondary p-6 flex items-center justify-between transition-colors"
               >
                 <h3 className="text-lg font-semibold text-foreground text-left">{item.title}</h3>
-                <ChevronDown
-                  className={`w-5 h-5 text-primary transition-transform ${expandedId === item.id ? "rotate-180" : ""}`}
-                />
+                <motion.div
+                  animate={{ rotate: expandedId === item.id ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ChevronDown className="w-5 h-5 text-primary" />
+                </motion.div>
               </button>
-              {expandedId === item.id && (
-                <div className="bg-white/75 px-6 py-4 border-t border-border-light">
-                  <p className="text-foreground-secondary">{item.description}</p>
-                </div>
-              )}
+              <AnimatePresence>
+                {expandedId === item.id && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-white/75 border-t border-border-light overflow-hidden"
+                  >
+                    <div className="px-6 py-4">
+                      <p className="text-foreground-secondary">{item.description}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>

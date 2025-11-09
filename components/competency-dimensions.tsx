@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronRight } from "lucide-react"
+import { motion } from "motion/react"
 
 export default function CompetencyDimensions() {
   const [selected, setSelected] = useState(0)
@@ -82,9 +83,13 @@ export default function CompetencyDimensions() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Pentagon Chart Alternative - Tabs */}
           <div className="flex flex-col gap-3">
-            {dimensions.map((dim) => (
-              <button
+            {dimensions.map((dim, index) => (
+              <motion.button
                 key={dim.id}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                viewport={{ once: true }}
                 onClick={() => setSelected(dim.id)}
                 className={`p-4 rounded-lg text-left transition-all ${
                   selected === dim.id
@@ -93,32 +98,44 @@ export default function CompetencyDimensions() {
                 }`}
               >
                 <div className="font-semibold">{dim.name}</div>
-              </button>
+              </motion.button>
             ))}
           </div>
 
           {/* Detail View */}
-          <div className="bg-background-secondary p-8 rounded-lg border border-border-light">
+          <motion.div
+            key={selected}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+            className="bg-background-secondary p-8 rounded-lg border border-border-light"
+          >
             {dimensions.map(
               (dim) =>
                 selected === dim.id && (
-                  <div key={dim.id} className="animate-in fade-in">
+                  <div key={dim.id}>
                     <div className={`w-2 h-12 ${dim.color} rounded mb-4`}></div>
                     <h3 className="text-2xl font-bold text-foreground mb-6">{dim.title}</h3>
                     <ul className="space-y-3">
                       {dim.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
+                        <motion.li
+                          key={i}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: i * 0.08 }}
+                          className="flex items-start gap-3"
+                        >
                           <ChevronRight
                             className={`w-5 h-5 ${dim.color.replace("bg-", "text-")} mt-0.5 flex-shrink-0`}
                           />
                           <span className="text-foreground-secondary">{item}</span>
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
                   </div>
                 ),
             )}
-          </div>
+          </motion.div>
         </div>
 
         <div className="mt-12 bg-yellow-50 border-l-4 border-accent p-6 rounded">

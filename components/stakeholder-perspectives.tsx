@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "motion/react"
+
 export default function StakeholderPerspectives() {
   const perspectives = [
     {
@@ -38,8 +42,12 @@ export default function StakeholderPerspectives() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {perspectives.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
               className="bg-white rounded-lg p-8 border border-border-light hover:shadow-lg transition-shadow"
             >
               <div className="flex items-start gap-4 mb-6">
@@ -56,7 +64,7 @@ export default function StakeholderPerspectives() {
               <p className="text-sm text-foreground-secondary bg-background-secondary p-4 rounded">
                 <strong>Insight:</strong> {item.insight}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
