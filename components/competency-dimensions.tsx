@@ -89,7 +89,7 @@ export default function CompetencyDimensions() {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 onClick={() => setSelected(dim.id)}
                 className={`p-4 rounded-lg text-left transition-all ${
                   selected === dim.id

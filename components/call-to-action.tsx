@@ -10,7 +10,7 @@ export default function CallToAction() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-4xl md:text-5xl font-bold text-white mb-4"
         >
           Mari Bersama Perkuat Pendidikan Vokasi
@@ -19,7 +19,7 @@ export default function CallToAction() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-xl text-white opacity-90 mb-12"
         >
           Pemahaman tentang pentingnya magang adalah langkah awal menuju ekosistem pendidikan vokasi yang lebih baik
@@ -62,7 +62,7 @@ function ActionCard({ icon, title, description, index }: { icon: string; title: 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.3 }}
       className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition-all"
     >
       <div className="text-4xl mb-3">{icon}</div>

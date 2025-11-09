@@ -74,7 +74,7 @@ export default function DataAndImpact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-lg border border-blue-200"
           >
             <h3 className="text-xl font-bold text-foreground mb-2">Tingkat Employability Lulusan Vokasi</h3>
@@ -103,7 +103,7 @@ export default function DataAndImpact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             className="bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-lg border border-emerald-200"
           >
             <h3 className="text-xl font-bold text-foreground mb-2">Distribusi Waktu Tunggu Kerja</h3>
@@ -135,7 +135,7 @@ export default function DataAndImpact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
           className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-lg border border-purple-200 mb-8"
         >
           <h3 className="text-xl font-bold text-foreground mb-2">📈 Peningkatan Kompetensi Sebelum & Sesudah Magang</h3>
@@ -167,7 +167,7 @@ export default function DataAndImpact() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-lg border border-cyan-200"
           >
             <h3 className="text-xl font-bold text-foreground mb-2">💰 Rata-rata Gaji Lulusan (BPS 2025)</h3>
@@ -200,7 +200,7 @@ export default function DataAndImpact() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-lg border border-amber-200"
           >
             <h3 className="text-xl font-bold text-foreground mb-2">⭐ Kepuasan Industri terhadap Lulusan</h3>

@@ -39,7 +39,7 @@ export default function ImplementationFramework() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               className="relative"
             >
               <div className="bg-white border-2 border-primary rounded-lg p-8">
@@ -54,7 +54,7 @@ export default function ImplementationFramework() {
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.1 + i * 0.05 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: false }}
                       className="flex items-start gap-2 text-foreground-secondary"
                     >
                       <span className="text-primary mt-1">•</span>

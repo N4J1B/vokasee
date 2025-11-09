@@ -43,16 +43,28 @@ export default function ImportanceOfInternship() {
   return (
     <section className="py-20 px-4 bg-background-secondary">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false, amount: 0.3 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Mengapa Magang Penting?</h2>
           <p className="text-lg text-foreground-secondary">
             Lima peran fundamental magang dalam pengembangan kompetensi mahasiswa vokasi
           </p>
-        </div>
+        </motion.div>
 
         <div className="space-y-4">
-          {importance.map((item) => (
-            <div key={item.id} className="border border-border-light rounded-lg overflow-hidden">
+          {importance.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: false, amount: 0.3 }}
+              className="border border-border-light rounded-lg overflow-hidden"
+            >
               <button
                 onClick={() => setExpandedId(expandedId === item.id ? null : item.id)}
                 className="w-full bg-white hover:bg-background-secondary p-6 flex items-center justify-between transition-colors"
@@ -80,7 +92,7 @@ export default function ImportanceOfInternship() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

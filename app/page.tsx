@@ -23,7 +23,7 @@ export default function Home() {
       <StakeholderPerspectives />
       <ChallengesAndSolutions />
       <PolicyRecommendations />
-      <CallToAction />
+      {/* <CallToAction /> */}
       {/* <References /> */}
       <Footer />
     </main>
